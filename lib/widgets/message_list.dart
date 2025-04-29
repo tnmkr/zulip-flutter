@@ -27,56 +27,54 @@ import 'theme.dart';
 
 /// Message-list styles that differ between light and dark themes.
 class MessageListTheme extends ThemeExtension<MessageListTheme> {
-  MessageListTheme.light() :
-    this._(
-      dateSeparator: Colors.black,
-      dateSeparatorText: const HSLColor.fromAHSL(0.75, 0, 0, 0.15).toColor(),
-      dmRecipientHeaderBg: const HSLColor.fromAHSL(1, 46, 0.35, 0.93).toColor(),
-      messageTimestamp: const HSLColor.fromAHSL(0.8, 0, 0, 0.2).toColor(),
-      recipientHeaderText: const HSLColor.fromAHSL(1, 0, 0, 0.15).toColor(),
-      senderBotIcon: const HSLColor.fromAHSL(1, 180, 0.08, 0.65).toColor(),
-      senderName: const HSLColor.fromAHSL(1, 0, 0, 0.2).toColor(),
-      streamMessageBgDefault: Colors.white,
-      streamRecipientHeaderChevronRight: Colors.black.withValues(alpha: 0.3),
+  static final light = MessageListTheme._(
+    dateSeparator: Colors.black,
+    dateSeparatorText: const HSLColor.fromAHSL(0.75, 0, 0, 0.15).toColor(),
+    dmRecipientHeaderBg: const HSLColor.fromAHSL(1, 46, 0.35, 0.93).toColor(),
+    messageTimestamp: const HSLColor.fromAHSL(0.8, 0, 0, 0.2).toColor(),
+    recipientHeaderText: const HSLColor.fromAHSL(1, 0, 0, 0.15).toColor(),
+    senderBotIcon: const HSLColor.fromAHSL(1, 180, 0.08, 0.65).toColor(),
+    senderName: const HSLColor.fromAHSL(1, 0, 0, 0.2).toColor(),
+    streamMessageBgDefault: Colors.white,
+    streamRecipientHeaderChevronRight: Colors.black.withValues(alpha: 0.3),
 
-      // From the Figma mockup at:
-      //   https://www.figma.com/file/1JTNtYo9memgW7vV6d0ygq/Zulip-Mobile?node-id=132-9684
-      // See discussion about design at:
-      //   https://chat.zulip.org/#narrow/stream/243-mobile-team/topic/flutter.3A.20unread.20marker/near/1658008
-      // (Web uses a left-to-right gradient from hsl(217deg 64% 59%) to transparent,
-      // in both light and dark theme.)
-      unreadMarker: const HSLColor.fromAHSL(1, 227, 0.78, 0.59).toColor(),
+    // From the Figma mockup at:
+    //   https://www.figma.com/file/1JTNtYo9memgW7vV6d0ygq/Zulip-Mobile?node-id=132-9684
+    // See discussion about design at:
+    //   https://chat.zulip.org/#narrow/stream/243-mobile-team/topic/flutter.3A.20unread.20marker/near/1658008
+    // (Web uses a left-to-right gradient from hsl(217deg 64% 59%) to transparent,
+    // in both light and dark theme.)
+    unreadMarker: const HSLColor.fromAHSL(1, 227, 0.78, 0.59).toColor(),
 
-      unreadMarkerGap: Colors.white.withValues(alpha: 0.6),
+    unreadMarkerGap: Colors.white.withValues(alpha: 0.6),
 
-      // TODO(design) this seems ad-hoc; is there a better color?
-      unsubscribedStreamRecipientHeaderBg: const Color(0xfff5f5f5),
-    );
+    // TODO(design) this seems ad-hoc; is there a better color?
+    unsubscribedStreamRecipientHeaderBg: const Color(0xfff5f5f5),
+  );
 
-  MessageListTheme.dark() :
-    this._(
-      dateSeparator: Colors.white,
-      dateSeparatorText: const HSLColor.fromAHSL(0.75, 0, 0, 1).toColor(),
-      dmRecipientHeaderBg: const HSLColor.fromAHSL(1, 46, 0.15, 0.2).toColor(),
-      messageTimestamp: const HSLColor.fromAHSL(0.8, 0, 0, 0.85).toColor(),
-      recipientHeaderText: const HSLColor.fromAHSL(0.8, 0, 0, 1).toColor(),
-      senderBotIcon: const HSLColor.fromAHSL(1, 180, 0.05, 0.5).toColor(),
-      senderName: const HSLColor.fromAHSL(0.85, 0, 0, 1).toColor(),
-      streamMessageBgDefault: const HSLColor.fromAHSL(1, 0, 0, 0.15).toColor(),
-      streamRecipientHeaderChevronRight: Colors.white.withValues(alpha: 0.3),
+  static final dark = MessageListTheme._(
+    dateSeparator: Colors.white,
+    dateSeparatorText: const HSLColor.fromAHSL(0.75, 0, 0, 1).toColor(),
+    dmRecipientHeaderBg: const HSLColor.fromAHSL(1, 46, 0.15, 0.2).toColor(),
+    messageTimestamp: const HSLColor.fromAHSL(0.8, 0, 0, 0.85).toColor(),
+    recipientHeaderText: const HSLColor.fromAHSL(0.8, 0, 0, 1).toColor(),
+    senderBotIcon: const HSLColor.fromAHSL(1, 180, 0.05, 0.5).toColor(),
+    senderName: const HSLColor.fromAHSL(0.85, 0, 0, 1).toColor(),
+    streamMessageBgDefault: const HSLColor.fromAHSL(1, 0, 0, 0.15).toColor(),
+    streamRecipientHeaderChevronRight: Colors.white.withValues(alpha: 0.3),
 
-      // 0.75 opacity from here:
-      //   https://www.figma.com/design/1JTNtYo9memgW7vV6d0ygq/Zulip-Mobile?node-id=807-33998&m=dev
-      // Discussion, some weeks after the discussion linked on the light variant:
-      //   https://github.com/zulip/zulip-flutter/pull/317#issuecomment-1784311663
-      // where Vlad includes screenshots that look like they're from there.
-      unreadMarker: const HSLColor.fromAHSL(0.75, 227, 0.78, 0.59).toColor(),
+    // 0.75 opacity from here:
+    //   https://www.figma.com/design/1JTNtYo9memgW7vV6d0ygq/Zulip-Mobile?node-id=807-33998&m=dev
+    // Discussion, some weeks after the discussion linked on the light variant:
+    //   https://github.com/zulip/zulip-flutter/pull/317#issuecomment-1784311663
+    // where Vlad includes screenshots that look like they're from there.
+    unreadMarker: const HSLColor.fromAHSL(0.75, 227, 0.78, 0.59).toColor(),
 
-      unreadMarkerGap: Colors.transparent,
+    unreadMarkerGap: Colors.transparent,
 
-      // TODO(design) this is ad-hoc and untested; is there a better color?
-      unsubscribedStreamRecipientHeaderBg: const Color(0xff0a0a0a),
-    );
+    // TODO(design) this is ad-hoc and untested; is there a better color?
+    unsubscribedStreamRecipientHeaderBg: const Color(0xff0a0a0a),
+  );
 
   MessageListTheme._({
     required this.dateSeparator,
@@ -177,8 +175,14 @@ abstract class MessageListPageState {
   Narrow get narrow;
 
   /// The controller for this [MessageListPage]'s compose box,
-  /// if this [MessageListPage] offers a compose box.
+  /// if this [MessageListPage] offers a compose box and it has mounted,
+  /// else null.
   ComposeBoxController? get composeBoxController;
+
+  /// The active [MessageListView].
+  ///
+  /// This is null if [MessageList] has not mounted yet.
+  MessageListView? get model;
 }
 
 class MessageListPage extends StatefulWidget {
@@ -214,8 +218,11 @@ class _MessageListPageState extends State<MessageListPage> implements MessageLis
 
   @override
   ComposeBoxController? get composeBoxController => _composeBoxKey.currentState?.controller;
-
   final GlobalKey<ComposeBoxState> _composeBoxKey = GlobalKey();
+
+  @override
+  MessageListView? get model => _messageListKey.currentState?.model;
+  final GlobalKey<_MessageListState> _messageListKey = GlobalKey();
 
   @override
   void initState() {
@@ -262,8 +269,6 @@ class _MessageListPageState extends State<MessageListPage> implements MessageLis
 
     List<Widget>? actions;
     if (narrow case TopicNarrow(:final streamId)) {
-      // The helper [_getEffectiveCenterTitle] relies on the fact that we
-      // have at most one action here.
       (actions ??= []).add(IconButton(
         icon: const Icon(ZulipIcons.message_feed),
         tooltip: zulipLocalizations.channelFeedButtonTooltip,
@@ -274,7 +279,8 @@ class _MessageListPageState extends State<MessageListPage> implements MessageLis
 
     return Scaffold(
       appBar: ZulipAppBar(
-        title: MessageListAppBarTitle(narrow: narrow),
+        buildTitle: (willCenterTitle) =>
+          MessageListAppBarTitle(narrow: narrow, willCenterTitle: willCenterTitle),
         actions: actions,
         backgroundColor: appBarBackgroundColor,
         shape: removeAppBarBottomBorder
@@ -288,8 +294,11 @@ class _MessageListPageState extends State<MessageListPage> implements MessageLis
       //   we matched to the Figma in 21dbae120. See another frame, which uses that:
       //     https://www.figma.com/file/1JTNtYo9memgW7vV6d0ygq/Zulip-Mobile?node-id=147%3A9088&mode=dev
       body: Builder(
-        builder: (BuildContext context) => Center(
-          child: Column(children: [
+        builder: (BuildContext context) => Column(
+          // Children are expected to take the full horizontal space
+          // and handle the horizontal device insets.
+          // The bottom inset should be handled by the last child only.
+          children: [
             MediaQuery.removePadding(
               // Scaffold knows about the app bar, and so has run this
               // BuildContext, which is under `body`, through
@@ -302,17 +311,26 @@ class _MessageListPageState extends State<MessageListPage> implements MessageLis
               removeBottom: ComposeBox.hasComposeBox(narrow),
 
               child: Expanded(
-                child: MessageList(narrow: narrow, onNarrowChanged: _narrowChanged))),
+                child: MessageList(
+                  key: _messageListKey,
+                  narrow: narrow,
+                  onNarrowChanged: _narrowChanged,
+                ))),
             if (ComposeBox.hasComposeBox(narrow))
               ComposeBox(key: _composeBoxKey, narrow: narrow)
-          ]))));
+          ])));
   }
 }
 
 class MessageListAppBarTitle extends StatelessWidget {
-  const MessageListAppBarTitle({super.key, required this.narrow});
+  const MessageListAppBarTitle({
+    super.key,
+    required this.narrow,
+    required this.willCenterTitle,
+  });
 
   final Narrow narrow;
+  final bool willCenterTitle;
 
   Widget _buildStreamRow(BuildContext context, {
     ZulipStream? stream,
@@ -334,7 +352,7 @@ class MessageListAppBarTitle extends StatelessWidget {
 
   Widget _buildTopicRow(BuildContext context, {
     required ZulipStream? stream,
-    required String topic,
+    required TopicName topic,
   }) {
     final store = PerAccountStoreWidget.of(context);
     final designVariables = DesignVariables.of(context);
@@ -344,7 +362,7 @@ class MessageListAppBarTitle extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Flexible(child: Text(topic, style: const TextStyle(
+        Flexible(child: Text(topic.displayName, style: const TextStyle(
           fontSize: 13,
         ).merge(weightVariableTextStyle(context)))),
         if (icon != null)
@@ -354,29 +372,6 @@ class MessageListAppBarTitle extends StatelessWidget {
               // TODO(design) copies the recipient header in web; is there a better color?
               color: designVariables.colorMessageHeaderIconInteractive, size: 14)),
       ]);
-  }
-
-  // TODO(upstream): provide an API for this
-  // Adapted from [AppBar._getEffectiveCenterTitle].
-  bool _getEffectiveCenterTitle(ThemeData theme) {
-    bool platformCenter() {
-      switch (theme.platform) {
-        case TargetPlatform.android:
-        case TargetPlatform.fuchsia:
-        case TargetPlatform.linux:
-        case TargetPlatform.windows:
-          return false;
-        case TargetPlatform.iOS:
-        case TargetPlatform.macOS:
-        // We rely on the fact that there is at most one action
-        // on the message list app bar, so that the expression returned
-        // in the original helper, `actions == null || actions!.length < 2`,
-        // always evaluates to `true`:
-          return true;
-      }
-    }
-
-    return theme.appBarTheme.centerTitle ?? platformCenter();
   }
 
   @override
@@ -399,10 +394,8 @@ class MessageListAppBarTitle extends StatelessWidget {
         return _buildStreamRow(context, stream: stream);
 
       case TopicNarrow(:var streamId, :var topic):
-        final theme = Theme.of(context);
         final store = PerAccountStoreWidget.of(context);
         final stream = store.streams[streamId];
-        final centerTitle = _getEffectiveCenterTitle(theme);
         return SizedBox(
           width: double.infinity,
           child: GestureDetector(
@@ -410,8 +403,8 @@ class MessageListAppBarTitle extends StatelessWidget {
             onLongPress: () => showTopicActionSheet(context,
               channelId: streamId, topic: topic),
             child: Column(
-              crossAxisAlignment: centerTitle ? CrossAxisAlignment.center
-                                              : CrossAxisAlignment.start,
+              crossAxisAlignment: willCenterTitle ? CrossAxisAlignment.center
+                                                  : CrossAxisAlignment.start,
               children: [
                 _buildStreamRow(context, stream: stream),
                 _buildTopicRow(context, stream: stream, topic: topic),
@@ -442,6 +435,12 @@ const _kShortMessageHeight = 80;
 // previous batch.
 const kFetchMessagesBufferPixels = (kMessageListFetchBatchSize / 2) * _kShortMessageHeight;
 
+/// The message list.
+///
+/// Takes the full screen width, keeping its contents
+/// out of the horizontal insets with transparent [SafeArea] padding.
+/// When there is no [ComposeBox], also takes responsibility
+/// for dealing with the bottom inset.
 class MessageList extends StatefulWidget {
   const MessageList({super.key, required this.narrow, required this.onNarrowChanged});
 
@@ -535,12 +534,15 @@ class _MessageListState extends State<MessageList> with PerAccountStoreAwareStat
     // Pad the left and right insets, for small devices in landscape.
     return SafeArea(
       // Don't let this be the place we pad the bottom inset. When there's
-      // no compose box, we want to let the message-list content pad it.
+      // no compose box, we want to let the message-list content
+      // and the scroll-to-bottom button avoid it.
       // TODO(#311) Remove as unnecessary if we do a bottom nav.
       //   The nav will pad the bottom inset, and an ancestor of this widget
       //   will have a `MediaQuery.removePadding` with `removeBottom: true`.
       bottom: false,
 
+      // Horizontally, on wide screens, this Center grows the SafeArea
+      // to position its padding over the device insets and centers content.
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 760),
@@ -553,7 +555,9 @@ class _MessageListState extends State<MessageList> with PerAccountStoreAwareStat
                   bottom: 0,
                   right: 0,
                   // TODO(#311) SafeArea shouldn't be needed if we have a
-                  //   bottom nav. That will pad the bottom inset.
+                  //   bottom nav; that will pad the bottom inset. Remove it,
+                  //   and the mention of bottom-inset handling in
+                  //   MessageList's dartdoc.
                   child: SafeArea(
                     child: ScrollToBottomButton(
                       scrollController: scrollController,
@@ -604,8 +608,8 @@ class _MessageListState extends State<MessageList> with PerAccountStoreAwareStat
         }));
 
     if (!ComposeBox.hasComposeBox(widget.narrow)) {
-      // TODO(#311) If we have a bottom nav, it will pad the bottom
-      //   inset, and this shouldn't be necessary
+      // TODO(#311) If we have a bottom nav, it will pad the bottom inset,
+      //   and this can be removed; also remove mention in MessageList dartdoc
       sliver = SliverSafeArea(sliver: sliver);
     }
 
@@ -1091,7 +1095,7 @@ class StreamMessageRecipientHeader extends StatelessWidget {
       child: Row(
         children: [
           Flexible(
-            child: Text(topic,
+            child: Text(topic.displayName,
               // TODO: Give a way to see the whole topic (maybe a
               //   long-press interaction?)
               overflow: TextOverflow.ellipsis,
